@@ -17,6 +17,8 @@ begin
   content =  html_file.split("\n")[0]
 end
 
+# content = "2333133121414131402"
+
 map = content.chars.map(&:to_i)
 i = 0
 numbers = []
@@ -48,7 +50,7 @@ puts "spaces: #{spaces[0,100]}"
 size = numbers.size
 numbers.reverse.each_with_index do |number, index|
   spaces.each_with_index do |space,i|
-    if space.count(false) >= number.size && i < (size - index)
+    if space.count(false) >= number.size && i < (size - index - 1)
       number.size.times do
         false_in = space.index(false)
         space[false_in] = number[0]
@@ -61,9 +63,16 @@ numbers.reverse.each_with_index do |number, index|
     end
   end
 end
-
+p "---------------"
 p "numbers: #{numbers[0,100]}"
 p "spaces: #{spaces[0,100]}"
+
+# check empty numb arrays
+check = numbers.select { |number| number.empty? }
+p "empty arrays: #{check.size}"
+space_check = spaces.select { |space| space.empty? }
+p "empty spaces: #{space_check.size}"
+p "---------------"
 
 compact = []
 numbers.each_with_index do |number, index|

@@ -19,7 +19,6 @@ begin
   content =  html_file.split("\n")[0]
 end
 
-# content = "2333133121414131402"
 map = content.chars.map(&:to_i)
 i = 0
 blocks = []
@@ -55,15 +54,11 @@ blocks.each do |char|
   end
 end
 
-# p "processed compact string: #{compact}; size: #{compact.chars.size}"
 checksum = 0
 compact.each_with_index do |char, index|
   checksum += char.to_i * index
-  # p "char: #{char}; index: #{index}; checksum: #{checksum}"
 end
 
-p compact[0,200]
-p compact[-200..-1]
 p checksum
 end_time = Time.now
 execution_time = end_time - start_time
