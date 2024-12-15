@@ -25,13 +25,6 @@ begin
   end
 end
 
-def bool_to_int(bool)
-  if (1..3).include?(bool)
-    return 1
-  else
-    return 0
-  end
-end
 
 safe_report = []
 def safe(array)
