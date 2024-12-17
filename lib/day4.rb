@@ -20,37 +20,26 @@ begin
   html_doc = Nokogiri::HTML.parse(html_file)
   content = html_doc.text
 end
-
-content = "MMMSXXMASM
-MSAMXMSMSA
-AMXSXMAAMM
-MSAMASMSMX
-XMASAMXAMM
-XXAMMXXAMA
-SMSMSASXSS
-SAXAMASAAA
-MAMMMXMMMM
-MXMXAXMASX"
 lines = content.split("\n")
 def count_word(content)
   content.scan(/(?=MAS)/).size + content.scan(/(?=SAM)/).size
 end
 
 # case 1: see horizontally, how many XMAS or SAMX
-# times = count_word(content)
-# puts times
+times = count_word(content)
+puts times
 
 # case 2: see vertically, how many XMAS or SAMX
-# i = 0
-# index = lines.size - 1
-# vertical_string = ""
-# lines.size.times do
-#   # imagine it starts with the first letter of all lines
-#   lines.each do |line|
-#     vertical_string += line[i]
-#   end
-#   vertical_string += "n"
-#   i += 1
+i = 0
+index = lines.size - 1
+vertical_string = ""
+lines.size.times do
+  # imagine it starts with the first letter of all lines
+  lines.each do |line|
+    vertical_string += line[i]
+  end
+  vertical_string += "n"
+  i += 1
 # end
 
 # times += count_word(vertical_string)
